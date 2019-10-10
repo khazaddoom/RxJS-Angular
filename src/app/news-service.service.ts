@@ -14,10 +14,6 @@ export class NewsServiceService {
           );
   counter = 0;
 
-  constructor() { 
-   
-
-
-  }
+  constructor() {}
 
 }
