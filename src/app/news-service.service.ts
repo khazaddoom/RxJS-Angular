@@ -1,20 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { interval } from 'rxjs';
+import { take, map } from 'rxjs/Operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewsServiceService {
 
-  news$: Observable<string>;
+  news$ = interval(1000)
+          .pipe(
+            map(x => x * Math.random()),
+            take(10)
+          );
   counter = 0;
 
   constructor() { 
-    this.news$ = new Observable((observer) => {
-      setInterval(() => {
-        observer.next("This time ... " + this.counter++)
-      }, 1500);
-    })
+   
+
+
   }
 
 }
